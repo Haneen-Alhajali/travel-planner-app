@@ -1,0 +1,15 @@
+@use 'variables' as vars;
+@use 'animations';
+@use 'background-icons';
+@use 'travel-planner';
+@use 'trip-card';
+@use 'new-trip';
+@use 'responsive';
+
+// Global Styles
+body {
+    font-family: vars.$font-primary;
+    background: #fff;
+    margin: 0;
+    padding: 20px;
+}

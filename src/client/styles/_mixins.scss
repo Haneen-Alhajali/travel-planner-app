@@ -1,0 +1,5 @@
+@mixin icon-style($top, $left, $size) {
+    top: $top;
+    left: $left;
+    font-size: $size;
+}

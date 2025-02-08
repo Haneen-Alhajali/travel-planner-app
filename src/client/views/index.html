@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Travel Planner</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-icons">
+        <i class="fas fa-plane plane"></i>
+        <i class="fas fa-suitcase suitcase"></i>
+        <i class="fas fa-map-marker-alt location"></i>
+    </div>
+    
+    <div class="travel-planner">
+        <h1>Travel Planner</h1>
+        <div class="trips-header">
+            <div class="trip-list-header">
+                <button class="collapse-btn">
+                    <i class="fas fa-chevron-up"></i>
+                </button>
+                <h2>My Trips:</h2>
+            </div>
+            <button class="add-trip-btn">+ Add Trip</button>
+        </div>
+
+        <!-- Trip Card (Dynamic Data) -->
+        <div id="trip-list" ></div>
+
+        <!-- New Trip Form -->
+        <div class="new-trip">
+            <form id="tripForm" class="trip-inputs">
+                <div class="input-group ,trip-inputs">
+                    <label for="location">My trip to:</label>
+                    <input type="text" id="location" placeholder="Enter Location">
+                </div>
+                <div class="input-group">
+                    <label for="depart">Departing:</label>
+                    <input type="date" id="depart">
+                </div>
+                <div class="buttons">
+                    <button type="submit" id="saveTrip" class="save-btn">Save Trip</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="main.js"></script>
+
+
+
+        <script>
+            document.querySelector(".collapse-btn").addEventListener("click", function () {
+            const tripList = document.getElementById("trip-list");
+            const icon = this.querySelector("i");
+
+            if (tripList.style.display === "none" || tripList.style.display === "") {
+                tripList.style.display = "block"; // Show trips
+                icon.classList.replace("fa-chevron-down", "fa-chevron-up");
+            } else {
+                tripList.style.display = "none"; // Hide trips
+                icon.classList.replace("fa-chevron-up", "fa-chevron-down");
+            }
+        });
+
+            document.querySelector(".add-trip-btn").addEventListener("click", function () {
+                const newTripForm = document.querySelector(".new-trip");
+
+                // Scroll smoothly to the form
+                newTripForm.scrollIntoView({ behavior: "smooth" });
+
+                // Add animation class
+                newTripForm.classList.add("shake-highlight");
+
+                // Remove animation after it plays (to allow re-triggering)
+                setTimeout(() => {
+                    newTripForm.classList.remove("shake-highlight");
+                }, 800); // Matches animation duration
+            });
+
+            // Check that service workers are supported
+            // Register the service worker
+            if ('serviceWorker' in navigator) {
+            // Wait for the 'load' event to not block other work
+                window.addEventListener('load', async () => {
+                    // Try to register the service worker.
+                    try {
+                    // Capture the registration for later use, if needed
+                        let reg;
+                        // In production, use the normal service worker registration
+                        reg = await navigator.serviceWorker.register('/service-worker.js');
+                        console.log('Service worker registered! 😎', reg);
+                    } catch (err) {
+                        
+                        console.log('😥 Service worker registration failed: ', err);
+                    }
+                });
+            }
+        </script>
+    </body>
+</html>

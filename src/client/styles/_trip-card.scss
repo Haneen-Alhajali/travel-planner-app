@@ -1,0 +1,92 @@
+@use 'variables' as vars;
+// Trip Card
+.trip-card {
+    display: flex;
+    background: vars.$primary-bg;
+    padding: 15px;
+    padding-bottom: 30px;
+    border-radius: 10px;
+    margin-top: 20px;
+    align-items: center;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+
+    opacity: 1;
+    transform: translateY(0);
+    animation: fadeInUp 0.5s ease-in-out;
+    
+    transition: transform 0.3s, box-shadow 0.3s;
+    
+    &:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    }
+
+    img {
+        width: 45%;
+        height: 220px;
+        object-fit: cover;
+        border-radius: 5px;
+        margin-right: 20px;
+    }
+
+    .trip-info {
+        h2 {
+            font-size: clamp(1.2rem, 3vw, 1.5rem); // Adjust size dynamically
+            font-weight: bold;
+            margin-bottom: 8px;
+            margin-top: 0;
+        }
+        
+        .distance,
+        .weather-title{
+            font-size: clamp(.8rem, 2.1vw, 1.1rem);
+        }
+        
+        .distance,
+        .weather-title,
+        .weather,
+        .weather-detail {
+            color: #666;
+            font-family: vars.$font-secondary;
+        }
+
+        .weather-title,
+        .weather,
+        .weather-detail {
+            margin: 0;
+            margin-bottom: 5px;
+        }
+
+        .weather,
+        .weather-detail {
+            font-size: 0.9rem;
+            font-size: clamp(0.6rem, 1.9vw, 0.9rem);
+        }
+
+        .buttons {
+            margin-top: 10px;
+            display: flex;
+            gap: 8px;
+
+            button {
+                padding: 8px 15px;
+                border-radius: 5px;
+                border: none;
+                cursor: pointer;
+                font-weight: bold;
+                transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+
+                &.remove-btn {
+                    background: vars.$button-disabled;
+                    color: white;
+
+                    &:hover {
+                        background: #999;
+                        transform: scale(1.05);
+                        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+                    }
+                }
+            }
+        }
+    }
+}

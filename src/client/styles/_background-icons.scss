@@ -1,0 +1,33 @@
+@use 'mixins' as mix;
+
+// Background Icons Container
+.background-icons {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; // Ensures icons don’t interfere with user actions
+    z-index: -1;
+
+    i { 
+        position: absolute;
+        opacity: 0.3; // Subtle opacity for a more integrated effect
+        font-size: 3rem; // Adjusted size for FontAwesome icons
+    }
+
+    .plane {
+        @include mix.icon-style(10%, 5%, 4rem);
+        animation: fly-to-corner 10s infinite linear;
+    }
+
+    .suitcase {
+        @include mix.icon-style(50%, 90%, 3.5rem);
+        animation: drag 6s infinite ease-in-out;
+    }
+
+    .location {
+        @include mix.icon-style(80%, 10%, 4.5rem);
+        animation: bounce 4s infinite ease-in-out;
+    }
+}

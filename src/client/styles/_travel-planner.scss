@@ -1,0 +1,63 @@
+@use 'variables' as vars;
+// Main container
+.travel-planner {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: left;
+
+    h1 {
+        font-family: vars.$font-secondary; 
+        font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .trips-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 10px;
+    
+        .trip-list-header {
+            display: flex;
+            align-items: center;
+            gap: 0;
+        }
+    
+        h2 {
+            font-family: vars.$font-primary;
+            font-size: clamp(1rem, 2.2vw, 1.2rem);
+            font-weight: bold;
+            margin: 0;
+        }
+    
+        .collapse-btn {
+            background: none;
+            border: none;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            margin-right: 5px; // Add a small margin between the button and text
+            
+            &:hover {
+                transform: scale(1.1);
+            }
+        }
+    
+        .add-trip-btn {
+            padding: 8px 15px;
+            background: #fff;
+            border: 2px solid gray;
+            border-radius: 15px;
+            cursor: pointer;
+            font-weight: bold;
+            font-size: clamp(0.6rem, 1.8vw, 0.8rem);
+            transition: background 0.3s, transform 0.3s, box-shadow 0.3s;
+    
+            &:hover {
+                background: vars.$button-hover;
+                color: #ddd;
+                transform: scale(1.05);
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+        }
+    }
+}

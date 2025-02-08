@@ -1,0 +1,28 @@
+// Keyframes Animations
+@keyframes fly-to-corner {
+    0% { transform: translate(-100px, -100px); }
+    50% { transform: translate(90vw, 5%); }
+    100% { transform: translate(200vw, -100px); }
+}
+
+@keyframes drag {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(20px); }
+}
+
+@keyframes bounce {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    0% { opacity: 0; transform: translateY(20px); }
+    100% { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes shakeFade {
+    0% { transform: translateX(15px); opacity: 0.5; }
+    50% { transform: translateX(20px); opacity: .7; }
+    100% { transform: translateX(0); opacity: 1; }
+}
