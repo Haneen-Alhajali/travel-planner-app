@@ -29,6 +29,17 @@ This web application allows users to:
 
 ## ⚙️ Installation
 
+### 🔧 Prerequisites  
+
+- **🟢 Node.js:** Ensure you have Node.js installed. This project is compatible with **`Node.js v22.12.0`**.  
+
+  - To check your Node.js version, run:  
+    ```bash
+    node -v
+    ```
+  - If you need to install or update Node.js, download it from the official [🌐 Node.js website](https://nodejs.org/). 🚀  
+
+### 👣 Steps
 To set up and run this project locally, follow these steps:
 
 1. 📥 Clone the repository:
