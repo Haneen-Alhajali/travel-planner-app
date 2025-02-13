@@ -80,7 +80,7 @@ describe('handleSubmit', () => {
 
     await handleSubmit(event);
 
-    expect(global.alert).toHaveBeenCalledWith("⚠️ The departure date is in the past! Please choose a future date. 📅⏳");
+    expect(global.alert).toHaveBeenCalledWith("⚠️ The departure date is in the past! Please choose today or a future date. 📅⏳");
   });
 
   it('should show an alert if location contains invalid characters', async () => {

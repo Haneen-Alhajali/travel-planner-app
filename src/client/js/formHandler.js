@@ -16,12 +16,16 @@ const handleSubmit = async (event) => {
 
     // Check if the departure date is before the current date
     const today = new Date();
+    today.setHours(0, 0, 0, 0);  // Remove time component
+    
     const travelDate = new Date(departDate);
-
+    travelDate.setHours(0, 0, 0, 0);
+    
     if (travelDate < today) {
-        alert("⚠️ The departure date is in the past! Please choose a future date. 📅⏳");
+        alert("⚠️ The departure date is in the past! Please choose today or a future date. 📅⏳");
         return;
     }
+    
 
     // Check if the location contains only letters and spaces
     const locationRegex = /^[A-Za-z\s,]+$/;

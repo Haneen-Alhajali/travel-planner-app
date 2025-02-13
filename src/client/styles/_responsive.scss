@@ -1,43 +1,60 @@
-@use 'mixins' as mix;
-
-// Responsive icons positioning
 @media (max-width: 768px) {
-    .background-icons {
-        i {
-            font-size: 2.5rem;
-        }
-
-        .plane {
-            @include mix.icon-style(5%, 3%, 2.5rem);
-        }
-
-        .suitcase {
-            @include mix.icon-style(55%, 85%, 3rem);
-        }
-
-        .location {
-            @include mix.icon-style(85%, 5%, 3.5rem);
-        }
-    }
-}
-
-// Mobile View Adjustments
-@media (max-width: 600px) {
     .trip-card {
         flex-direction: column;
+        align-items: center;
         text-align: center;
 
         img {
             width: 100%;
-            margin-bottom: 10px;
+            height: auto;
         }
     }
 
-    .new-trip {
-        align-items: center;
+    .trip-info {
+        h2 {
+            font-size: 1.2rem;
+        }
+
+        .distance, .weather-title, .weather-detail {
+            font-size: 0.9rem;
+        }
+
+        .buttons {
+            flex-direction: column;
+            align-items: center;
+
+            button {
+                width: 100%;
+                font-size: 1rem;
+                padding: 10px;
+            }
+        }
     }
+}
+
+@media (max-width: 600px) {
+    .new-trip {
+        width: 100%;
+        padding: 10px;
+    }
+
+    .trip-inputs {
+        width: 100%;
+
+        input {
+            width: 100%;
+            font-size: 1rem;
+        }
+    }
+
     .buttons {
-        flex-direction: column; // Stack buttons
-        align-items: center; // Center-align
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+
+        button {
+            width: 100%;
+            padding: 10px;
+        }
     }
 }

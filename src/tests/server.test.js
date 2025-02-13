@@ -10,15 +10,21 @@ const nextDay = new Date(today);
 nextDay.setDate(today.getDate() + 1);
 const futureDate = nextDay.toISOString().split('T')[0]; // Formats as YYYY-MM-DD
 
-beforeAll((done) => {
+beforeAll(() => {
+    jest.setTimeout(15000);
     server = http.createServer(app);
-    server.listen(() => {
-        done();
+    return new Promise((resolve) => {
+        server.listen(() => resolve());
     });
 });
 
-afterAll((done) => {
-    server.close(done);
+afterAll(() => {
+    return new Promise((resolve) => {
+        server.close(() => {
+            console.log('Server closed');
+            resolve();
+        });
+    });
 });
 
 describe('Trip Data API Tests', () => {
@@ -36,7 +42,7 @@ describe('Trip Data API Tests', () => {
         expect(response.body.weather).toHaveProperty('lowTemp');
         expect(response.body.weather).toHaveProperty('description');
         expect(response.body).toHaveProperty('imageUrl');
-    });
+    }, 15000);
 
     test('POST /getTripData - Missing Parameters', async () => {
         const response = await request(app)
